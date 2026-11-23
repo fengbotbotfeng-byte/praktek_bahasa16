@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1b120a">
+<title>The Legend of Abo' Tadohe & Mole'bu | Bolaang Mongondow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pw:440px;--ph:620px;--cream:#fff8e9;--cream2:#f1e5cd;--ink:#3b2b1d;--soft:#6b5743;--gold:#c7a052;--gold2:#e4c57d;--dark:#160d06}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px 12px 30px;overflow-x:hidden;color:#f3e5c6;font-family:Lora,Georgia,serif;background:radial-gradient(ellipse at 50% 12%,#4a301a,#24150b 44%,#0c0703 100%);position:relative}
+body:before{content:"";position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle at center,rgba(196,153,67,.18),transparent 54%);animation:glow 9s ease-in-out infinite}
+@keyframes glow{50%{opacity:.8;transform:scale(1.06)}}
+.header,.book-stage,.controls,.footer{position:relative;z-index:2}
+.header{text-align:center}
+.header small{font:600 .6rem Cinzel,serif;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+.header h1{font:600 clamp(1.05rem,3vw,1.55rem) Playfair Display,serif;color:#f8ebcf;margin-top:8px;text-shadow:0 2px 18px #c49a4c55}
+.header .rule{width:110px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:12px auto}
+.book-stage{transform-origin:top center}
+.book{position:relative;width:calc(var(--pw)*2);height:var(--ph);perspective:2200px;border-radius:7px;background:#211308;box-shadow:0 40px 70px #000c,0 0 0 1px #c8a15a44,inset 0 0 60px #0008;overflow:visible}
+.book:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:22px;transform:translateX(-50%);z-index:50;background:linear-gradient(90deg,#3a2411,#8a6435 18%,#3b2411 44%,#1b1008 50%,#6d4c26 78%,#2c1a0b);box-shadow:0 0 14px #160b05aa}
+.book:after{content:"";position:absolute;inset:5px 5px 5px 50%;pointer-events:none;z-index:49;background:linear-gradient(90deg,#0005,transparent 12%,transparent 90%,#0002)}
+.leaf{position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.42,.05,.22,1);will-change:transform}
+.leaf.flipped{transform:rotateY(-180deg)}
+.page{position:absolute;inset:0;display:flex;flex-direction:column;padding:30px 31px 24px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;color:var(--ink);background:radial-gradient(circle at 18% 12%,#ffffff99,transparent 45%),linear-gradient(165deg,var(--cream),var(--cream2));}
+.page.front{border-radius:2px 8px 8px 2px;box-shadow:inset -14px 0 22px -19px #573716}
+.page.back{transform:rotateY(180deg);border-radius:8px 2px 2px 8px;box-shadow:inset 14px 0 22px -19px #573716}
+.page:before{content:"";position:absolute;inset:0;pointer-events:none}
+.page.front:before{background:linear-gradient(90deg,#79552b22,transparent 9%)}
+.page.back:before{background:linear-gradient(270deg,#79552b22,transparent 9%)}
+.page>*{position:relative;z-index:1}
+.chapter{font:600 .54rem Cinzel,serif;letter-spacing:.27em;text-transform:uppercase;color:#a7823d;margin-bottom:8px}
+.chapter:after{content:"";display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:8px}
+.page h2{font:700 clamp(1.12rem,2vw,1.38rem)/1.2 Playfair Display,serif;color:#4a3018;margin-bottom:12px}
+.page p{font-size:.77rem;line-height:1.72;color:#4c3a2a;text-align:justify;margin-bottom:10px}
+.page p:last-of-type{margin-bottom:0}
+.lead{font-style:italic;color:#6b5340!important;border-left:2px solid #c39b3c88;padding-left:11px}
+.figure{margin-top:auto;padding-top:13px;min-height:135px;height:38%;max-height:240px;border-radius:6px;overflow:hidden;box-shadow:0 9px 22px -12px #51391caa,0 0 0 1px #c39b3c66;position:relative}
+.figure img{width:100%;height:100%;object-fit:cover;display:block}
+.figure figcaption{position:absolute;bottom:0;left:0;right:0;padding:7px 10px;background:linear-gradient(transparent,#171009bb);color:#fff2d8;font:italic .63rem Lora,serif}
+.pageno{margin-top:9px;font:600 .56rem Cinzel,serif;letter-spacing:.18em;color:#ac966c}
+.page.front .pageno{text-align:right}.page.back .pageno{text-align:left}
+.cover{padding:24px}
+.cover-inner{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 15px;border:1px solid #c39b3c88;border-radius:6px;outline:1px solid #c39b3c33;outline-offset:5px;background:radial-gradient(circle at 50% 0%,#c39b3c15,transparent 60%)}
+.cover .kicker{font:600 .52rem Cinzel,serif;letter-spacing:.29em;text-transform:uppercase;color:#a8863a;margin-bottom:14px}
+.cover-title{font:700 clamp(1.35rem,3vw,1.75rem)/1.15 Playfair Display,serif;color:#4a3018}
+.cover-title em{display:block;font:italic 1.05rem Playfair Display,serif;color:#a27c35;margin:3px}
+.ornament{display:flex;align-items:center;gap:10px;width:100%;margin:14px 0;color:var(--gold)}
+.ornament:before,.ornament:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#c39b3c,transparent)}
+.cover-sub{font-size:.68rem!important;text-align:center!important;line-height:1.6!important;color:#6a5340!important}
+.cover-sub strong{font:600 .7rem Cinzel,serif;letter-spacing:.08em;color:#8a6a1e}
+.cover-photo{width:100%;height:38%;min-height:130px;max-height:220px;margin:12px 0;border-radius:5px;overflow:hidden;box-shadow:0 12px 26px -14px #4c300e,0 0 0 1px #c39b3c66}
+.cover-photo img{width:100%;height:100%;object-fit:cover}
+.cover-bottom{margin-top:auto;font:600 .5rem Cinzel,serif;letter-spacing:.23em;color:#a8863a;text-transform:uppercase}
+.facts{display:flex;flex-direction:column;gap:9px;margin:12px 0}
+.fact{padding:10px 12px;border-radius:7px;background:linear-gradient(135deg,#c39b3c1e,#c39b3c07);border-left:3px solid var(--gold)}
+.fact-label{font:600 .5rem Cinzel,serif;letter-spacing:.19em;text-transform:uppercase;color:#a8863a;display:block;margin-bottom:3px}
+.fact-text{font-size:.73rem;line-height:1.5;color:#453322}
+.morals{display:flex;flex-direction:column;gap:9px;margin-top:3px}
+.moral{display:flex;gap:10px;padding:10px;border-radius:7px;background:linear-gradient(135deg,#c39b3c1b,#c39b3c05);border-left:3px solid var(--gold)}
+.moral-no{font:600 .95rem Cinzel,serif;color:#b28a40}
+.moral strong{font:600 .78rem Playfair Display,serif;color:#4a3018;display:block;margin-bottom:3px}
+.moral span{font-size:.68rem;line-height:1.5;color:#5a4636}
+.glossary{display:grid;gap:9px;margin-top:5px}
+.term{padding:10px 12px;border:1px solid #c39b3c44;border-radius:7px;background:#c39b3c0d}
+.term b{display:block;font:600 .82rem Playfair Display,serif;color:#8a6a1e;margin-bottom:3px}
+.term span{font-size:.68rem;line-height:1.5;color:#5a4636}
+.backcover{padding:24px}
+.back-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;border:1px solid #c39b3c88;border-radius:6px;outline:1px solid #c39b3c33;outline-offset:5px}
+.back-inner h2{font:700 1.55rem Playfair Display,serif;color:#4a3018;margin:7px 0}
+.thanks{font:italic .78rem Lora,serif;color:#7a6248}
+.credits{display:grid;gap:7px;width:100%;margin-top:18px}
+.credit{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:8px 10px;background:#c39b3c13;border-left:3px solid var(--gold);border-radius:5px;text-align:left}
+.credit small{font:600 .48rem Cinzel,serif;letter-spacing:.16em;color:#a8863a;text-transform:uppercase}
+.credit strong{font:600 .74rem Playfair Display,serif;color:#4a3018;text-align:right}
+.back-foot{font:600 .5rem Cinzel,serif;letter-spacing:.2em;color:#a8863a;margin-top:18px;text-transform:uppercase}
+.controls{display:flex;align-items:center;gap:20px}
+.navbtn{width:48px;height:48px;border:1px solid #c39b3c88;border-radius:50%;display:grid;place-items:center;color:#e4c57d;background:radial-gradient(circle at 30% 25%,#49301b,#160b04);box-shadow:0 10px 24px -12px #000, inset 0 1px #ffffff17;transition:.3s;cursor:pointer}
+.navbtn:hover:not(:disabled){transform:translateY(-3px) scale(1.07);border-color:#e4c57d;box-shadow:0 15px 28px -12px #000,0 0 20px #c39b3c55}
+.navbtn:active:not(:disabled){transform:scale(.94)}
+.navbtn:disabled{opacity:.25;cursor:default}
+.dots{display:flex;gap:8px;align-items:center}
+.dot{width:6px;height:6px;border-radius:50%;background:#e4c57d33;transition:.3s}
+.dot.active{background:#e4c57d;transform:scale(1.5);box-shadow:0 0 10px #e4c57d88}
+.footer{font-size:.62rem;color:#9b896b;text-align:center;letter-spacing:.05em}
+.footer strong{color:#dfbd73;font-weight:600}
+@media(max-width:600px){body{justify-content:flex-start;padding-top:18px;gap:14px}.header h1{font-size:1.08rem}.controls{gap:14px}.navbtn{width:43px;height:43px}.footer{font-size:.56rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header class="header">
+ <small>English Assignment · Folklore</small>
+ <h1>Bolaang Mongondow Folklore</h1>
+ <div class="rule"></div>
+</header>
+
+<main class="book-stage" id="stage">
+<div class="book" id="book">
+<!-- leaf 1 -->
+<div class="leaf">
+<section class="page front cover">
+ <div class="cover-inner">
+  <div class="kicker">A Folklore from North Sulawesi</div>
+  <h1 class="cover-title">The Legend of<br>Abo' Tadohe<em>&amp;</em>Mole'bu</h1>
+  <div class="ornament">✦</div>
+  <p class="cover-sub">The Origin of the Name<br><strong>BOLAANG MONGONDOW</strong></p>
+  <figure class="cover-photo"><img src="https://files.catbox.moe/axwmhx.jpg" alt="Bolaang Mongondow scenery"></figure>
+  <div class="cover-bottom">Bolaang Mongondow · North Sulawesi</div>
+ </div>
+</section>
+<section class="page back">
+ <span class="chapter">About This Story</span><h2>Origin &amp; Setting</h2>
+ <p class="lead">A local folktale telling how the name Bolaang Mongondow is connected to the land, hope, and kinship.</p>
+ <div class="facts">
+  <div class="fact"><span class="fact-label">Origin</span><span class="fact-text">Bolaang Mongondow, North Sulawesi</span></div>
+  <div class="fact"><span class="fact-label">Setting</span><span class="fact-text">The mountains and land around Mount Komasan</span></div>
+ </div>
+ <figure class="figure"><img src="https://files.catbox.moe/cd664v.jpg" alt="Mountain landscape"><figcaption>The land of Bolaang Mongondow</figcaption></figure>
+ <div class="pageno">2</div>
+</section>
+</div>
+<!-- leaf 2 -->
+<div class="leaf">
+<section class="page front">
+ <span class="chapter">Chapter One</span><h2>The Beginning of Life in the Inland</h2>
+ <p>In ancient times, in a mountainous area and dense forest in the land now known as Bolaang Mongondow, there lived a husband and wife named Abo' Tadohe and Mole'bu. They lived side by side with nature, depending for their livelihood on the produce of the forest and the rivers around their dwelling place.</p>
+ <p>Their days passed peacefully until one time nature showed extraordinary turmoil. Heavy rain fell continuously for days, triggering flash floods and a very large flood. The water current overflowed quickly, submerging the valleys and inundating almost all the land they usually stepped on.</p>
+ <figure class="figure"><img src="https://files.catbox.moe/o1dh3f.jpg" alt="Forest and homeland"><figcaption>Life close to nature</figcaption></figure><div class="pageno">3</div>
+</section>
+<section class="page back">
+ <span class="chapter">Chapter Two</span><h2>Surviving on Mount Komasan</h2>
+ <p>In the midst of panic due to the flood water that kept rising, Abo' Tadohe and Mole'bu tried to save themselves. They grabbed a large, sturdy log and held on tightly as the swift current swept them away from their old dwelling place.</p>
+ <p>Their struggle was not in vain. The log carried them until they were stranded on the peak of a high mountain known as Mount Komasan. At that height they survived while waiting for the water to recede, strengthening each other.</p>
+ <figure class="figure"><img src="https://files.catbox.moe/x295pg.jpg" alt="Mountain view"><figcaption>Finding refuge above the flood</figcaption></figure><div class="pageno">4</div>
+</section>
+</div>
+<!-- leaf 3 -->
+<div class="leaf">
+<section class="page front">
+ <span class="chapter">Chapter Three</span><h2>The Brightness of “Bolaang”</h2>
+ <p>After some time passed, the flood water slowly receded. From the peak of Mount Komasan, Abo' Tadohe and Mole'bu looked down and saw a vast expanse of land that was starting to dry and looked bright and clear, struck by sunlight after previously being covered by water and fog.</p>
+ <p>In the Mongondow language, the view of the land that is bright and wide open is called <strong>“Bolaang.”</strong> For Abo' Tadohe and Mole'bu, the view became a sign of new hope to start life again and arrange a settlement in a safer and more fertile area.</p>
+ <figure class="figure"><img src="https://files.catbox.moe/lgy2v0.jpg" alt="Bright landscape"><figcaption>A bright land and a new beginning</figcaption></figure><div class="pageno">5</div>
+</section>
+<section class="page back">
+ <span class="chapter">Chapter Four</span><h2>The Call of “Momondow”</h2>
+ <p>As time went by, their descendants grew in number. Their children and grandchildren began to spread in various directions, both to coastal areas and to inland areas, to open land and build new lives.</p>
+ <p>In order for the kinship relationship to remain maintained even though distance separated them, they called out to each other and gave news with the call <strong>“Momondow!”</strong>, which means to call out or to give a sign to a distant brother or sister to gather and strengthen each other.</p>
+ <figure class="figure"><img src="https://files.catbox.moe/c6p886.jpg" alt="Community and kinship"><figcaption>Keeping family and community bonds strong</figcaption></figure><div class="pageno">6</div>
+</section>
+</div>
+<!-- leaf 4 -->
+<div class="leaf">
+<section class="page front">
+ <span class="chapter">Chapter Five</span><h2>The Birth of the Name Bolaang Mongondow</h2>
+ <p>From the combination of two meaningful words in the local language, the name <strong>Bolaang Mongondow</strong> was born:</p>
+ <div class="facts">
+  <div class="fact"><span class="fact-label">Bolaang</span><span class="fact-text">A vast area that is bright, open, and full of hope after a difficult period.</span></div>
+  <div class="fact"><span class="fact-label">Mongondow</span><span class="fact-text">The spirit of brotherhood of the community who call out to each other, greet each other, and unite in togetherness.</span></div>
+ </div>
+ <p>Since then, the story of the perseverance of Abo' Tadohe and Mole'bu has continued to be remembered as the root of the history and cultural identity of the Bolaang Mongondow community.</p>
+ <figure class="figure"><img src="https://files.catbox.moe/066evn.jpg" alt="Bolaang Mongondow homeland"><figcaption>Our heritage, our identity</figcaption></figure><div class="pageno">7</div>
+</section>
+<section class="page back">
+ <span class="chapter">Reflection</span><h2>Moral Message of the Story</h2>
+ <div class="morals">
+  <div class="moral"><div class="moral-no">01</div><div><strong>Perseverance</strong><span>Even in the most difficult situations, courage and cooperation help people survive and find new hope.</span></div></div>
+  <div class="moral"><div class="moral-no">02</div><div><strong>Unity and Care</strong><span>A community grows stronger when people support one another and preserve their bonds.</span></div></div>
+  <div class="moral"><div class="moral-no">03</div><div><strong>Respecting Our Origins</strong><span>Learning local stories and language helps us appreciate the values inherited from our ancestors.</span></div></div>
+ </div>
+ <figure class="figure"><img src="https://files.catbox.moe/7xvosc.jpg" alt="Beautiful local landscape"><figcaption>Remembering our roots</figcaption></figure><div class="pageno">8</div>
+</section>
+</div>
+<!-- leaf 5 -->
+<div class="leaf">
+<section class="page front">
+ <span class="chapter">Glossary</span><h2>Words from the Story</h2>
+ <div class="glossary">
+  <div class="term"><b>Bolaang</b><span>A bright, open, and wide land—a symbol of hope after hardship.</span></div>
+  <div class="term"><b>Momondow</b><span>Calling out or giving a sign to distant relatives to gather and stay connected.</span></div>
+  <div class="term"><b>Mount Komasan</b><span>The mountain peak where Abo' Tadohe and Mole'bu found refuge.</span></div>
+  <div class="term"><b>Abo' Tadohe &amp; Mole'bu</b><span>The couple at the heart of this local origin story.</span></div>
+ </div>
+ <p style="margin-top:13px">This legend reminds us that local stories preserve a community's memory, identity, and values.</p><div class="pageno">9</div>
+</section>
+<section class="page back backcover">
+ <div class="back-inner">
+  <div class="ornament">✦</div><h2>The End</h2><p class="thanks">Thank you for reading</p><div class="ornament">✦</div>
+  <div class="credits">
+   <div class="credit"><small>Created by</small><strong>USMAN ABUHASAN</strong></div>
+   <div class="credit"><small>Subject</small><strong>English</strong></div>
+   <div class="credit"><small>Teacher</small><strong>Diawaty Udang</strong></div>
+  </div>
+  <div class="back-foot">Bolaang Mongondow · North Sulawesi</div>
+ </div>
+</section>
+</div>
+</div>
+</main>
+<nav class="controls" aria-label="Flipbook controls">
+<button class="navbtn" id="prevBtn" aria-label="Previous spread"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+<div class="dots" id="dots"></div>
+<button class="navbtn" id="nextBtn" aria-label="Next spread"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+</nav>
+<footer class="footer">Created by <strong>USMAN ABUHASAN</strong> · English Subject · Teacher <strong>Diawaty Udang</strong></footer>
+<script>
+(()=>{
+ const W=880,H=620,book=document.getElementById('book'),stage=document.getElementById('stage'),leaves=[...document.querySelectorAll('.leaf')],prev=document.getElementById('prevBtn'),next=document.getElementById('nextBtn'),dotsWrap=document.getElementById('dots');
+ const total=leaves.length,states=total+1,duration=920;let current=0,anim=false;
+ for(let i=0;i<states;i++){let d=document.createElement('i');d.className='dot';dotsWrap.appendChild(d)}
+ const dots=[...dotsWrap.children];
+ function fit(){let s=Math.min(1,(innerWidth-24)/W,(innerHeight-210)/H);stage.style.width=W*s+'px';stage.style.height=H*s+'px';stage.style.transform=`scale(${s})`;book.style.width=W+'px';book.style.height=H+'px'}
+ function layers(){leaves.forEach((l,i)=>l.style.zIndex=i<current?String(i+1):String(total-i+10))}
+ function ui(){dots.forEach((d,i)=>d.classList.toggle('active',i===current));prev.disabled=current===0;next.disabled=current===total}
+ function flip(dir){if(anim||dir>0&&current>=total||dir<0&&current<=0)return;anim=true;let idx=dir>0?current:current-1,leaf=leaves[idx];leaf.style.zIndex='999';if(dir>0){leaf.classList.add('flipped');current++}else{leaf.classList.remove('flipped');current--}ui();setTimeout(()=>{layers();ui();anim=false},duration)}
+ prev.addEventListener('click',()=>flip(-1));next.addEventListener('click',()=>flip(1));
+ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();flip(1)}if(e.key==='ArrowLeft'){e.preventDefault();flip(-1)}});
+ book.addEventListener('click',e=>{if(e.target.closest('button'))return;const r=book.getBoundingClientRect(),x=e.clientX-r.left;flip(x<r.width/2?-1:1)});
+ let tx=null,ty=null;book.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY},{passive:true});book.addEventListener('touchend',e=>{if(tx===null)return;let dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy))flip(dx<0?1:-1);tx=null},{passive:true});
+ addEventListener('resize',fit);addEventListener('orientationchange',()=>setTimeout(fit,150));
+ document.querySelectorAll('img').forEach(im=>im.addEventListener('error',()=>{im.alt='Image unavailable';im.style.opacity='.15'}));
+ fit();layers();ui();
+})();
+</script>
+</body>
+                                                                                            </html>
